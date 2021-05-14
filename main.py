@@ -70,8 +70,10 @@ if __name__ == '__main__':
     df_buy["profit"] = df_buy["curr_value"] / df_buy["audtotal"]
 
     d1 = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
-    df_buy[["market","amount","audtotal","curr_rate","curr_value","profit"]].sort_values(by=['profit'],ascending=False).to_csv(f"[{d1}] status.csv")
-    print("the end")
+    df = df_buy[["market","created","amount","audtotal","curr_rate","curr_value","profit"]].sort_values(by=['profit'],ascending=False)
+    df.to_csv(f"[{d1}] status.csv")
+    print(df)
+
 
 
 
