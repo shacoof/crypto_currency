@@ -73,6 +73,10 @@ if __name__ == '__main__':
     df = df_buy[["market","created","amount","audtotal","curr_rate","curr_value","profit"]].sort_values(by=['profit'],ascending=False)
     df.to_csv(f"[{d1}] status.csv")
     print(df)
+    orig = df_buy['audtotal'].sum()
+    curr = df_buy['curr_value'].sum()
+    print(f"profit {round(curr/orig,2)*100}%  curr/orig {round(curr)} / {round(orig)} ")
+
 
 
 
